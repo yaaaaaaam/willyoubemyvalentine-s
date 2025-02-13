@@ -14,7 +14,7 @@
         .popup {
             position: absolute;
             width: 300px;
-            height: 200px;
+            height: 400px; /* Double the height */
             background: #FFB6C1; /* Light pink background */
             border: 2px solid pink;
             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
@@ -23,7 +23,7 @@
             z-index: 1000;
         }
         .popup img {
-            width: 100px;
+            width: 200px; /* Adjust the image size if necessary */
             height: auto;
         }
         .love-popup {
@@ -59,7 +59,7 @@
             let popup = document.createElement("div");
             popup.className = "popup";
             popup.style.left = Math.random() * (window.innerWidth - 320) + "px";
-            popup.style.top = Math.random() * (window.innerHeight - 220) + "px";
+            popup.style.top = Math.random() * (window.innerHeight - 420) + "px"; /* Adjusted for new height */
             
             popup.innerHTML = `
                 <p>Will you be my Valentine? 💖</p>
@@ -81,7 +81,7 @@
                 let popup = document.createElement("div");
                 popup.className = "popup";
                 popup.style.left = Math.random() * (window.innerWidth - 320) + "px";
-                popup.style.top = Math.random() * (window.innerHeight - 220) + "px";
+                popup.style.top = Math.random() * (window.innerHeight - 420) + "px"; /* Adjusted for new height */
                 
                 popup.innerHTML = `
                     <p>WRONG ANSWER, try again PLEASE 💔</p>
