@@ -21,6 +21,7 @@
             text-align: center;
             padding: 20px;
             z-index: 1000;
+            font-size: 1.5em;
         }
         .popup img {
             width: 200px; /* Adjust the image size if necessary */
@@ -35,6 +36,7 @@
             padding: 40px; /* Double the padding to make it twice as big */
             border-radius: 10px;
             text-align: center;
+            font-size: 1.5em;
         }
         .love-popup img {
             width: 200px; /* Double the size of the image */
@@ -43,8 +45,8 @@
     </style>
 </head>
 <body>
-    <h1>Will You Be My Valentine? ❤️</h1>
-    <button onclick="showPopup()">Click Me!</button>
+    <h1 style="font-size: 1.5em;">Will You Be My Valentine? ❤️</h1>
+    <button onclick="showPopup()" style="font-size: 1.5em;">Click Me!</button>
 
     <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.17/dist/index.min.js"></script>
     <script>
@@ -52,6 +54,7 @@
         let maxPopups = 20;
         let popups = [];
         const buzzerSound = new Audio('errorbuzzer.mp3'); // Add the path to your sound effect
+        const yesSound = new Audio('yes.mp3'); // Add the path to your new 'yes' sound effect
 
         function showPopup() {
             if (noCount >= maxPopups) return;
@@ -104,6 +107,8 @@
                 </div>
                 <canvas id="confetti-canvas"></canvas>
             `;
+
+            yesSound.play(); // Play the new 'yes' sound effect
 
             // Confetti effect
             const confettiSettings = { target: 'confetti-canvas' };
