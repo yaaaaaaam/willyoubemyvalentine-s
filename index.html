@@ -49,7 +49,7 @@
     <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.17/dist/index.min.js"></script>
     <script>
         let noCount = 0;
-        let maxPopups = 14;
+        let maxPopups = 20;
         let popups = [];
         const buzzerSound = new Audio('errorbuzzer.mp3'); // Add the path to your sound effect
 
@@ -100,7 +100,7 @@
             document.body.innerHTML = `
                 <div class="love-popup">
                     <p>YAY! You said YES! 💕🥰</p>
-                    <img src="images/happy.gif" alt="Happy">
+                    <img src="love-image.jpg" alt="Happy">
                 </div>
                 <canvas id="confetti-canvas"></canvas>
             `;
