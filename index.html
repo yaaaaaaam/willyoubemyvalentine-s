@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Proposal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #FF8C42;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1, h2 {
+            margin: 10px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 20px;
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .yes-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no-btn {
+            background-color: #FF4136;
+            color: white;
+        }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: black;
+            display: none;
+        }
+        .popup img {
+            width: 200px;
+            border-radius: 10px;
+        }
+        .popup button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello Gelu, my love</h1>
+    <h2>Will you be my Valentine's? ❤️</h2>
+    <div class="buttons">
+        <button class="yes-btn" onclick="showPopup('yes')">Yes</button>
+        <button class="no-btn" onclick="showPopup('no')">No</button>
+    </div>
+
+    <div id="popupYes" class="popup">
+        <h2>I love you, my jowa <3!</h2>
+        <img src="https://yourgithuburl.com/love-image.jpg" alt="Love">
+        <br>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <div id="popupNo" class="popup">
+        <h2>Please reconsider 💔</h2>
+        <img src="https://yourgithuburl.com/sad-image.jpg" alt="Sad">
+        <br>
+        <button onclick="showPopup('no')">No</button>
+        <button onclick="showPopup('yes')">Yes</button>
+    </div>
+
+    <script>
+        function showPopup(type) {
+            if (type === 'yes') {
+                document.getElementById("popupYes").style.display = "block";
+                document.getElementById("popupNo").style.display = "none";
+            } else {
+                document.getElementById("popupNo").style.display = "block";
+                document.getElementById("popupYes").style.display = "none";
+            }
+        }
+
+        function closePopup() {
+            document.getElementById("popupYes").style.display = "none";
+        }
+    </script>
+</body>
+</html>
