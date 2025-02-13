@@ -26,13 +26,27 @@
             width: 100px;
             height: auto;
         }
+        .love-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #FFB6C1;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .love-popup img {
+            width: 100px;
+            height: auto;
+        }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
 </head>
 <body>
     <h1>Will You Be My Valentine? ❤️</h1>
     <button onclick="showPopup()">Click Me!</button>
 
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.17/dist/index.min.js"></script>
     <script>
         let noCount = 0;
         let maxPopups = 14;
@@ -81,55 +95,20 @@
                 popups.push(popup);
             }
         }
-        
+
         function acceptLove() {
-            popups.forEach(popup => popup.remove()); // Remove all popups
-            popups = [];
-            
-            let lovePopup = document.createElement("div");
-            lovePopup.className = "popup";
-            lovePopup.style.left = "50%";
-            lovePopup.style.top = "50%";
-            lovePopup.style.transform = "translate(-50%, -50%)";
-            
-            lovePopup.innerHTML = `
-                <p>YAY! You said YES!😍 I love you 💕</p>
-                <img src="love-image.jpg">
+            document.body.innerHTML = `
+                <div class="love-popup">
+                    <p>YAY! You said YES! 💕🥰</p>
+                    <img src="images/happy.gif" alt="Happy">
+                </div>
+                <canvas id="confetti-canvas"></canvas>
             `;
-            
-            document.body.appendChild(lovePopup);
 
-            document.body.appendChild(lovePopup);
-
-    // 🎉 Fire Confetti
-    confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 }
-    });
-
-    // Keep the confetti going for a few seconds 🎊
-    let duration = 3 * 1000; // 3 seconds
-    let end = Date.now() + duration;
-
-    (function frame() {
-        confetti({
-            particleCount: 5,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 }
-        });
-        confetti({
-            particleCount: 5,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 }
-        });
-
-        if (Date.now() < end) {
-            requestAnimationFrame(frame);
-        }
-    })();
+            // Confetti effect
+            const confettiSettings = { target: 'confetti-canvas' };
+            const confetti = new ConfettiGenerator(confettiSettings);
+            confetti.render();
         }
     </script>
 </body>
