@@ -32,12 +32,12 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background: #FFB6C1;
-            padding: 20px;
+            padding: 40px; /* Double the padding to make it twice as big */
             border-radius: 10px;
             text-align: center;
         }
         .love-popup img {
-            width: 100px;
+            width: 200px; /* Double the size of the image */
             height: auto;
         }
     </style>
@@ -63,7 +63,7 @@
             
             popup.innerHTML = `
                 <p>Will you be my Valentine? 💖</p>
-                <img src="sad-image.jpg">
+                <img src="frenchie.gif">
                 <br>
                 <button onclick="acceptLove()">Yes</button>
                 <button onclick="rejectLove(this)">No</button>
