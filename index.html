@@ -46,4 +46,41 @@
 
             popup.innerHTML = `
                 <p>Will you be my Valentine? 💖</p>
-                <img src="https://
+                <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Cute">
+                <br>
+                <button onclick="acceptLove()">Yes</button>
+                <button onclick="rejectLove(this)">No</button>
+            `;
+
+            document.body.appendChild(popup);
+            popups.push(popup);
+        }
+
+        function rejectLove(button) {
+            noCount++;
+
+            if (noCount < maxPopups) {
+                showPopup();
+            }
+        }
+
+        function acceptLove() {
+            popups.forEach(popup => popup.remove()); // Remove all popups
+            popups = []; 
+
+            let lovePopup = document.createElement("div");
+            lovePopup.className = "popup";
+            lovePopup.style.left = "50%";
+            lovePopup.style.top = "50%";
+            lovePopup.style.transform = "translate(-50%, -50%)";
+
+            lovePopup.innerHTML = `
+                <p>YAY! You said YES! 💕😍</p>
+                <img src="https://media.giphy.com/media/l4FGuhL4U2WyjdkaY/giphy.gif" alt="Happy">
+            `;
+
+            document.body.appendChild(lovePopup);
+        }
+    </script>
+</body>
+</html>
