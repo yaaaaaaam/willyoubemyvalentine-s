@@ -9,6 +9,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 50px;
+            background-color: #FF8C42; /* Add this line */
         }
         .popup {
             position: absolute;
@@ -35,15 +36,15 @@
         let noCount = 0;
         let maxPopups = 14;
         let popups = [];
-
+        
         function showPopup() {
             if (noCount >= maxPopups) return;
-
+            
             let popup = document.createElement("div");
             popup.className = "popup";
             popup.style.left = Math.random() * (window.innerWidth - 320) + "px";
             popup.style.top = Math.random() * (window.innerHeight - 220) + "px";
-
+            
             popup.innerHTML = `
                 <p>Will you be my Valentine? 💖</p>
                 <img src="sad-image.jpg">
@@ -51,34 +52,34 @@
                 <button onclick="acceptLove()">Yes</button>
                 <button onclick="rejectLove(this)">No</button>
             `;
-
+            
             document.body.appendChild(popup);
             popups.push(popup);
         }
-
+        
         function rejectLove(button) {
             noCount++;
-
+            
             if (noCount < maxPopups) {
                 showPopup();
             }
         }
-
+        
         function acceptLove() {
             popups.forEach(popup => popup.remove()); // Remove all popups
-            popups = []; 
-
+            popups = [];
+            
             let lovePopup = document.createElement("div");
             lovePopup.className = "popup";
             lovePopup.style.left = "50%";
             lovePopup.style.top = "50%";
             lovePopup.style.transform = "translate(-50%, -50%)";
-
+            
             lovePopup.innerHTML = `
                 <p>YAY! You said YES!😍 I love you 💕</p>
                 <img src="love-image.jpg">
             `;
-
+            
             document.body.appendChild(lovePopup);
         }
     </script>
