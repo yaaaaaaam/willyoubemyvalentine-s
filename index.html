@@ -27,6 +27,7 @@
             height: auto;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
 </head>
 <body>
     <h1>Will You Be My Valentine? ❤️</h1>
@@ -97,6 +98,38 @@
             `;
             
             document.body.appendChild(lovePopup);
+
+            document.body.appendChild(lovePopup);
+
+    // 🎉 Fire Confetti
+    confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+
+    // Keep the confetti going for a few seconds 🎊
+    let duration = 3 * 1000; // 3 seconds
+    let end = Date.now() + duration;
+
+    (function frame() {
+        confetti({
+            particleCount: 5,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }
+        });
+        confetti({
+            particleCount: 5,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    })();
         }
     </script>
 </body>
